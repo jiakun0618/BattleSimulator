@@ -40,7 +40,7 @@ function generateProfile(playerName, seedOffset) {
     };
 }
 
-const actionList1 = ["Strike", "Grapple", "Kick", "Punch", "Throw"];
+const actionList1 = ["Strike", "Grapple", "Kick", "Punch", "Throw", "Sweep", "Choke", "Elbow", "Knee"];
 
 function calculateDamage(power, defense, agility) {
     const defenseMitigator = (defense / 100) + 1;
@@ -81,9 +81,28 @@ const actionDescriptions = {
         const damage = calculateDamage(attacker.power, defender.defense, defender.agility);
         defender.hitPoints -= damage;
         return `${attacker.name} tries to throw ${defender.name} off balance, dealing ${damage} damage.`;
+    },
+    "Sweep": (attacker, defender) => {
+        const damage = calculateDamage(attacker.power, defender.defense, defender.agility);
+        defender.hitPoints -= damage;
+        return `${attacker.name} sweeps ${defender.name}'s legs, dealing ${damage} damage.`;
+    },
+    "Choke": (attacker, defender) => {
+        const damage = calculateDamage(attacker.power, defender.defense, defender.agility);
+        defender.hitPoints -= damage;
+        return `${attacker.name} applies a chokehold on ${defender.name}, dealing ${damage} damage.`;
+    },
+    "Elbow": (attacker, defender) => {
+        const damage = calculateDamage(attacker.power, defender.defense, defender.agility);
+        defender.hitPoints -= damage;
+        return `${attacker.name} strikes ${defender.name} with a powerful elbow, dealing ${damage} damage.`;
+    },
+    "Knee": (attacker, defender) => {
+        const damage = calculateDamage(attacker.power, defender.defense, defender.agility);
+        defender.hitPoints -= damage;
+        return `${attacker.name} delivers a devastating knee strike to ${defender.name}, dealing ${damage} damage.`;
     }
 };
-
 
 function startBattle(player1, player2) {
     let round = 1;
