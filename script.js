@@ -141,11 +141,11 @@ function startBattle(player1, player2) {
         // Player 1 attacks Player 2
         const action1 = actionList1[Math.floor(Math.random() * actionList1.length)];
         const actionFunc1 = actionDescriptions[action1];
-        battleLogContent += `Round ${round} - ${player1.name} attacks: ${actionFunc1(player1, player2)}\n`;
+        battleLogContent += `Round ${round} - ${actionFunc1(player1, player2)} `;
 
         // Check if Player 2 is still standing
         if (player2.hitPoints <= 0) {
-            battleLogContent += `${player1.name} wins the battle!\n`;
+            battleLogContent += `\n${player1.name} wins the battle!\n`;
             clearInterval(battleInterval);
             document.getElementById('battleLog').innerText = battleLogContent;
             return;
@@ -154,7 +154,7 @@ function startBattle(player1, player2) {
         // Player 2 attacks Player 1
         const action2 = actionList1[Math.floor(Math.random() * actionList1.length)];
         const actionFunc2 = actionDescriptions[action2];
-        battleLogContent += `${player2.name} attacks: ${actionFunc2(player2, player1)}\n`;
+        battleLogContent += `${actionFunc2(player2, player1)}\n`;
 
         // Check if Player 1 is still standing
         if (player1.hitPoints <= 0) {
@@ -165,7 +165,7 @@ function startBattle(player1, player2) {
         }
 
         // Show current hit points
-        battleLogContent += `${player1.name} HP: ${player1.hitPoints}, ${player2.name} HP: ${player2.hitPoints}\n\n`;
+        battleLogContent += `${player1.name} HP: ${player1.hitPoints}, ${player2.name} HP: ${player2.hitPoints}\n`;
         document.getElementById('battleLog').innerText = battleLogContent;
 
         round++;
