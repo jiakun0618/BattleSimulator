@@ -70,47 +70,56 @@ function calculateDamage(power, defense, agility) {
 
 const actionDescriptions = {
     "Strike": (attacker, defender) => {
-        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Strike"]);
+        const damage1 = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Strike"]);
+        const damage = Math.floor(damage1);
         defender.hitPoints -= damage;
         return `${attacker.name} strikes fiercely at ${defender.name}, dealing ${damage} damage.`;
     },
     "Grapple": (attacker, defender) => {
-        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Grapple"]);
+        const damage1 = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Grapple"]);
+        const damage = Math.floor(damage1);
         defender.hitPoints -= damage;
         return `${attacker.name} attempts to grapple ${defender.name} into submission, dealing ${damage} damage.`;
     },
     "Kick": (attacker, defender) => {
-        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Kick"]);
+        const damage1 = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Kick"]);
+        const damage = Math.floor(damage1);
         defender.hitPoints -= damage;
         return `${attacker.name} unleashes a powerful kick towards ${defender.name}, dealing ${damage} damage.`;
     },
     "Punch": (attacker, defender) => {
-        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Punch"]);
+        const damage1 = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Punch"]);
+        const damage = Math.floor(damage1);
         defender.hitPoints -= damage;
         return `${attacker.name} throws a swift punch at ${defender.name}, dealing ${damage} damage.`;
     },
     "Throw": (attacker, defender) => {
-        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Throw"]);
+        const damage1 = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Throw"]);
+        const damage = Math.floor(damage1);
         defender.hitPoints -= damage;
         return `${attacker.name} tries to throw ${defender.name} off balance, dealing ${damage} damage.`;
     },
     "Sweep": (attacker, defender) => {
-        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Sweep"]);
+        const damage1 = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Sweep"]);
+        const damage = Math.floor(damage1);
         defender.hitPoints -= damage;
         return `${attacker.name} sweeps ${defender.name}'s legs, dealing ${damage} damage.`;
     },
     "Choke": (attacker, defender) => {
-        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Choke"]);
+        const damage1 = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Choke"]);
+        const damage = Math.floor(damage1);
         defender.hitPoints -= damage;
         return `${attacker.name} applies a chokehold on ${defender.name}, dealing ${damage} damage.`;
     },
     "Elbow": (attacker, defender) => {
-        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Elbow"]);
+        const damage1 = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Elbow"]);
+        const damage = Math.floor(damage1);
         defender.hitPoints -= damage;
         return `${attacker.name} strikes ${defender.name} with a powerful elbow, dealing ${damage} damage.`;
     },
     "Knee": (attacker, defender) => {
-        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Knee"]);
+        const damage1 = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Knee"]);
+        const damage = Math.floor(damage1);
         defender.hitPoints -= damage;
         return `${attacker.name} delivers a devastating knee strike to ${defender.name}, dealing ${damage} damage.`;
     }
