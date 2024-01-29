@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Player Battle Simulator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h2>Player Battle Simulator</h2>
+    <div>
+        <input type="text" id="nameInput1" placeholder="Enter Player 1's name">
+        <input type="text" id="nameInput2" placeholder="Enter Player 2's name">
+        <button onclick="initiateBattle()">Start Battle</button>
+    </div>
+    <div id="output" style="display: flex; justify-content: space-around;">
+        <pre id="profile1"></pre>
+        <pre id="profile2"></pre>
+    </div>
+    <div id="battleLog"></div> <!-- Battle log section -->
+
+    <script src="script.js"></script>
+</body>
+</html>
