@@ -42,6 +42,18 @@ function generateProfile(playerName, seedOffset) {
 
 const actionList1 = ["Strike", "Grapple", "Kick", "Punch", "Throw", "Sweep", "Choke", "Elbow", "Knee"];
 
+const actionMultipliers = {
+    "Strike": 1.2,
+    "Grapple": 0.8,
+    "Kick": 1.2,
+    "Punch": 1,
+    "Throw": 2,
+    "Sweep": 1.2,
+    "Choke": 1.4,
+    "Elbow": 1.3,
+    "Knee": 2
+};
+
 function calculateDamage(power, defense, agility) {
     const defenseMitigator = (defense / 100) + 1;
     const agilityMitigator = (agility / 100) + 1;
@@ -58,47 +70,47 @@ function calculateDamage(power, defense, agility) {
 
 const actionDescriptions = {
     "Strike": (attacker, defender) => {
-        const damage = calculateDamage(attacker.power, defender.defense, defender.agility);
+        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Strike"]);
         defender.hitPoints -= damage;
         return `${attacker.name} strikes fiercely at ${defender.name}, dealing ${damage} damage.`;
     },
     "Grapple": (attacker, defender) => {
-        const damage = 0.8* calculateDamage(attacker.power, defender.defense, defender.agility);
+        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Grapple"]);
         defender.hitPoints -= damage;
         return `${attacker.name} attempts to grapple ${defender.name} into submission, dealing ${damage} damage.`;
     },
     "Kick": (attacker, defender) => {
-        const damage = 1.1* calculateDamage(attacker.power, defender.defense, defender.agility);
+        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Kick"]);
         defender.hitPoints -= damage;
         return `${attacker.name} unleashes a powerful kick towards ${defender.name}, dealing ${damage} damage.`;
     },
     "Punch": (attacker, defender) => {
-        const damage = 0.9* calculateDamage(attacker.power, defender.defense, defender.agility);
+        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Punch"]);
         defender.hitPoints -= damage;
         return `${attacker.name} throws a swift punch at ${defender.name}, dealing ${damage} damage.`;
     },
     "Throw": (attacker, defender) => {
-        const damage = 1.3* calculateDamage(attacker.power, defender.defense, defender.agility);
+        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Throw"]);
         defender.hitPoints -= damage;
         return `${attacker.name} tries to throw ${defender.name} off balance, dealing ${damage} damage.`;
     },
     "Sweep": (attacker, defender) => {
-        const damage = 1.1 * calculateDamage(attacker.power, defender.defense, defender.agility);
+        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Sweep"]);
         defender.hitPoints -= damage;
         return `${attacker.name} sweeps ${defender.name}'s legs, dealing ${damage} damage.`;
     },
     "Choke": (attacker, defender) => {
-        const damage = 1.5* calculateDamage(attacker.power, defender.defense, defender.agility);
+        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Choke"]);
         defender.hitPoints -= damage;
         return `${attacker.name} applies a chokehold on ${defender.name}, dealing ${damage} damage.`;
     },
     "Elbow": (attacker, defender) => {
-        const damage = 1.3* calculateDamage(attacker.power, defender.defense, defender.agility);
+        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Elbow"]);
         defender.hitPoints -= damage;
         return `${attacker.name} strikes ${defender.name} with a powerful elbow, dealing ${damage} damage.`;
     },
     "Knee": (attacker, defender) => {
-        const damage = 2* calculateDamage(attacker.power, defender.defense, defender.agility);
+        const damage = Math.floor(calculateDamage(attacker.power, defender.defense, defender.agility) * actionMultipliers["Knee"]);
         defender.hitPoints -= damage;
         return `${attacker.name} delivers a devastating knee strike to ${defender.name}, dealing ${damage} damage.`;
     }
